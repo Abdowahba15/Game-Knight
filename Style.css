@@ -1,0 +1,163 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade transition for every section */
+.fade-section {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.fade-section.visible {
+    opacity: 1;
+}
+
+/* General website styles */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(135deg, #2d0b00 0%, #7c1c1c 100%);
+    color: #fff3e0;
+}
+
+header {
+    background: #ff4500;
+    color: #fff;
+    padding: 32px 0 16px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-bottom: 4px solid #b22222;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #b22222;
+    animation: slide-down 1s cubic-bezier(.77,0,.18,1);
+}
+
+/* Header animation */
+@keyframes slide-down {
+    0% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+nav {
+    margin: 24px 0 0 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff3e0;
+    background: #b22222;
+    text-decoration: none;
+    padding: 10px 24px;
+    margin: 0 8px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.2s;
+    border: 2px solid #ff4500;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Underline animation in header */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: #ffb300;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+}
+
+nav a:hover {
+    background: #ff4500;
+    color: #fff;
+}
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Main content container */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(44, 12, 0, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    padding: 32px;
+}
+
+section {
+    margin-bottom: 48px;
+}
+
+h2 {
+    color: #ff4500;
+    margin-top: 0;
+    text-shadow: 1px 1px 0 #b22222;
+    font-size: 1.5rem;
+}
+
+/* Game cards grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.game-card {
+    background: #3d1a00;
+    border: 2px solid #ff4500;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    animation: pop-in 0.7s cubic-bezier(.77,0,.18,1);
+}
+
+.game-card:hover {
+    transform: scale(1.04);
+    border-color: #fff3e0;
+}
+
+.game-card img {
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #222;
+}
+
+/* Cards animation */
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.85) translateY(30px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 24px 0;
+    background: #b22222;
+    color: #fff3e0;
+    border-top: 4px solid #ff4500;
+    margin-top: 48px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    main { padding: 12px; }
+    header h1 { font-size: 1.2rem; }
+}
